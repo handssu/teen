@@ -1,0 +1,244 @@
+import pygame, sys, random, time
+from pygame.locals import*
+pygame.init()
+screen = pygame.display.set_mode((1200,700))
+font = pygame.font.SysFont("gulim",60)
+score = 0
+menu = "home"
+
+home_image = pygame.image.load("images/home.png").convert()
+Q1_image = pygame.image.load("images/Q1.png").convert()
+Q2_image = pygame.image.load("images/Q2.png").convert()
+Q3_image = pygame.image.load("images/Q3.png").convert()
+Q4_image = pygame.image.load("images/Q4.png").convert()
+A1_image = pygame.image.load("images/A1.png").convert()
+A2_image = pygame.image.load("images/A2.png").convert()
+A3_image = pygame.image.load("images/A3.png").convert()
+A4_image = pygame.image.load("images/A4.png").convert()
+prefect_image = pygame.image.load("images/perfect.jpg").convert()
+ahah_image = pygame.image.load("images/ahah.jpg").convert()
+half_image = pygame.image.load("images/half.jpg").convert()
+quarter_image = pygame.image.load("images/quarter.jpg").convert()
+foreigner_image = pygame.image.load("images/foreigner.jpg").convert()
+
+while 1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+            
+    pressed_keys = pygame.key.get_pressed()
+
+    if menu == "home":
+        score = 0
+        screen.blit(home_image,(0,0))
+        txt = font.render("시작하기",True,(255,255,255))
+        txt_x = 470
+        txt_y = 430
+        buttonrect = pygame.Rect((txt_x,txt_y), txt.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect)
+        screen.blit(txt,(txt_x,txt_y))
+        if pygame.mouse.get_pressed()[0] and buttonrect.collidepoint(pygame.mouse.get_pos()):
+            menu = "Q1"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "Q1":
+        screen.blit(Q1_image,(0,0))
+        txt1 = font.render("[암날]",True,(255,255,255))
+        buttonrect1 = pygame.Rect((250,500),txt1.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect1)
+        screen.blit(txt1,(250,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect1.collidepoint(pygame.mouse.get_pos()):
+            score += 25
+            menu = "A1"
+        txt2 = font.render("[압날]",True,(255,255,255))
+        buttonrect2 = pygame.Rect((500,500),txt2.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect2)
+        screen.blit(txt2,(500,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect2.collidepoint(pygame.mouse.get_pos()):
+            menu = "A1"
+        txt3 = font.render("[앞날]",True,(255,255,255))
+        buttonrect3 = pygame.Rect((750,500),txt3.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect3)
+        screen.blit(txt3,(750,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect3.collidepoint(pygame.mouse.get_pos()):
+            menu = "A1"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "A1":
+        screen.blit(A1_image,(0,0))
+        txta = font.render("다음으로",True,(255,255,255))
+        buttonrecta = pygame.Rect((txt_x,txt_y),txta.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrecta)
+        screen.blit(txta,(txt_x,txt_y))
+        if pygame.mouse.get_pressed()[0] and buttonrecta.collidepoint(pygame.mouse.get_pos()):
+            menu = "Q2"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "Q2":
+        screen.blit(Q2_image,(0,0))
+        txt4 = font.render("1개",True,(255,255,255))
+        buttonrect4 = pygame.Rect((150,500),txt4.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect4)
+        screen.blit(txt4,(150,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect4.collidepoint(pygame.mouse.get_pos()):
+            menu = "A2"
+        txt5 = font.render("2개",True,(255,255,255))
+        buttonrect5 = pygame.Rect((350,500),txt5.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect5)
+        screen.blit(txt5,(350,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect5.collidepoint(pygame.mouse.get_pos()):
+            menu = "A2"
+        txt6 = font.render("3개",True,(255,255,255))
+        buttonrect6 = pygame.Rect((550,500),txt6.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect6)
+        screen.blit(txt6,(550,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect6.collidepoint(pygame.mouse.get_pos()):
+            score += 25
+            menu = "A2"
+        txt7 = font.render("4개",True,(255,255,255))
+        buttonrect7 = pygame.Rect((750,500),txt7.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect7)
+        screen.blit(txt7,(750,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect7.collidepoint(pygame.mouse.get_pos()):
+            menu = "A2"
+        txt8 = font.render("5개",True,(255,255,255))
+        buttonrect8 = pygame.Rect((950,500),txt8.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect8)
+        screen.blit(txt8,(950,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect8.collidepoint(pygame.mouse.get_pos()):
+            menu = "A2"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "A2":
+        screen.blit(A2_image,(0,0))
+        txtb = font.render("다음으로",True,(255,255,255))
+        buttonrectb = pygame.Rect((txt_x,txt_y),txtb.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrectb)
+        screen.blit(txtb,(txt_x,txt_y))
+        if pygame.mouse.get_pressed()[0] and buttonrectb.collidepoint(pygame.mouse.get_pos()):
+            menu = "Q3"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "Q3":
+        screen.blit(Q3_image,(0,0))
+        txt9 = font.render("백분률",True,(255,255,255))
+        buttonrect9 = pygame.Rect((350,500),txt9.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect9)
+        screen.blit(txt9,(350,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect9.collidepoint(pygame.mouse.get_pos()):
+            menu = "A3"
+        txt10 = font.render("백분율",True,(255,255,255))
+        buttonrect10 = pygame.Rect((650,500),txt10.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect10)
+        screen.blit(txt10,(650,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect10.collidepoint(pygame.mouse.get_pos()):
+            score += 25
+            menu = "A3"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+      
+    if menu == "A3":
+        screen.blit(A3_image,(0,0))
+        txtc = font.render("다음으로",True,(255,255,255))
+        buttonrectc = pygame.Rect((txt_x,txt_y),txtc.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrectc)
+        screen.blit(txtc,(txt_x,txt_y))
+        if pygame.mouse.get_pressed()[0] and buttonrectc.collidepoint(pygame.mouse.get_pos()):
+            menu = "Q4"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+  
+    if menu == "Q4":
+        screen.blit(Q4_image,(0,0))
+        txt_1 = font.render("많이 해주세요",True,(255,255,255))
+        buttonrect_1 = pygame.Rect((250,400),txt_1.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_1)
+        screen.blit(txt_1,(250,400))
+        if pygame.mouse.get_pressed()[0] and buttonrect_1.collidepoint(pygame.mouse.get_pos()):
+            menu = "A4"
+        txt_2 = font.render("삼가주세요",True,(255,255,255))
+        buttonrect_2 = pygame.Rect((750,400),txt_2.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_2)
+        screen.blit(txt_2,(750,400))
+        if pygame.mouse.get_pressed()[0] and buttonrect_2.collidepoint(pygame.mouse.get_pos()):
+            menu = "A4"
+        txt_3 = font.render("사랑해요",True,(255,255,255))
+        buttonrect_3 = pygame.Rect((50,500),txt_3.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_3)
+        screen.blit(txt_3,(50,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect_3.collidepoint(pygame.mouse.get_pos()):
+            score += 25
+            menu = "A4"
+        txt_4 = font.render("많이해주세요",True,(255,255,255))
+        buttonrect_4 = pygame.Rect((350,500),txt_4.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_4)
+        screen.blit(txt_4,(350,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect_4.collidepoint(pygame.mouse.get_pos()):
+            menu = "A4"
+        txt_5 = font.render("삼가 주세요",True,(255,255,255))
+        buttonrect_5 = pygame.Rect((800,500),txt_5.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_5)
+        screen.blit(txt_5,(800,500))
+        if pygame.mouse.get_pressed()[0] and buttonrect_5.collidepoint(pygame.mouse.get_pos()):
+            score += 25
+            menu = "A4"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+      
+    if menu == "A4":
+        screen.blit(A4_image,(0,0))
+        txtd = font.render("다음으로",True,(255,255,255))
+        buttonrectd = pygame.Rect((txt_x,txt_y),txtd.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrectd)
+        screen.blit(txtd,(txt_x,txt_y))
+        if pygame.mouse.get_pressed()[0] and buttonrectd.collidepoint(pygame.mouse.get_pos()):
+            menu = "finish"
+  
+    if menu == "finish":
+        if score == 100:
+            screen.blit(prefect_image,(0.0))
+        elif score == 75:
+            screen.blit(ahah_image,(0,0))
+        elif score == 50:
+            screen.blit(half_image,(0,0))
+        elif score == 25:
+            screen.blit(quarter_image,(0,0))
+        else:
+            screen.blit(foreigner_image,(0,0))
+      
+        txt_f = font.render("처음으로",True,(255,255,255))
+        buttonrect_f = pygame.Rect((850,350), txt_f.get_size())
+        pygame.draw.rect(screen,(72,72,72),buttonrect_f)
+        screen.blit(txt_f,(850,350))
+        if pygame.mouse.get_pressed()[0] and buttonrect_f.collidepoint(pygame.mouse.get_pos()):
+            menu = "home"
+        txt_j = font.render("점수 :",True,(0,0,0))
+        txt_o = font.render(str(score),True,(0,0,0))
+        screen.blit(txt_j,(0,0))
+        screen.blit(txt_o,(200,0))
+
+    pygame.display.update()
+
+#시작하기-Q1-A1-Q2-A2-Q3-A3-Q4-A4-결과-처음으로
