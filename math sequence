@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+  float a; /*첫째항*/
+  float r; /*공비*/
+  float m; /*첫항*/
+  float n; /*마지막항*/
+  float j[101]={};
+  printf("등비수열의 첫째항을 정해주세요.\n");
+  scanf("%f", &a);
+  printf("등비수열의 공비를 정해주세요.\n");
+  scanf("%f", &r);
+  
+  printf("등비수열의 합을 구할 첫항을 정해주세요.\n");
+  scanf("%f", &m);
+
+  for(int i=1; m < 1 || (int)m-m != 0; i++){
+    m = 0;
+    printf("첫항은 0보다 큰 정수여야 합니다. 다시 정해주세요.\n");
+    scanf("%f", &m);
+  }
+  printf("등비수열의 합을 구할 마지막항을 정해주세요.\n");
+  scanf("%f", &n);
+  for(int i=1; n < m || (int)n-n != 0; i++){
+    n = 0;
+    printf("끝항은 첫항보다 크거나 같은 정수여야 합니다. 다시 정해주세요.\n");
+    scanf("%f", &n);
+  }
+
+  for(int i=m; i<=n; i++){
+    float z=0; /*제곱 만들기*/
+    z = pow(r, (double)(i-1));
+    j[i]= a*z;
+  }
+
+  printf("등비수열의 합은 ");
+  float S = 0;
+  for(int i=m; i<=n; i++){
+    S = S + j[i];
+  }
+  printf("%g", S);
+  printf("입니다.\n");
+}
